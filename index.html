@@ -46,6 +46,7 @@
 		<h3 class="title">나는 어떤 정치인과 닮았을까?</h3>
 		<h4 class="subtitle">SEDA 미리 맛보기! 머신러닝학습을 통한 나의 얼굴과 닮은 정치인 찾기</h4>
 		<h5 class="sub2title">*주의* 본 사이트는 장난의 목적으로만 사용해주세요</h5>
+		
 	</section>
 	<section class="hper">
 
@@ -142,7 +143,7 @@
 		// More API functions here:
 		// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 		// the link to your model provided by Teachable Machine export panel
-		const URL = "https://teachablemachine.withgoogle.com/models/jI5ivGuVS/";
+		const URL = "https://teachablemachine.withgoogle.com/models/Pdcpl24wH/";
 		let model, webcam, labelContainer, maxPredictions;
 		// Load the image model and setup the webcam
 		async function init() {
@@ -215,37 +216,25 @@
 				case "14":
 					resultMessege = "당신은 홍준표 전 대표를 닮았네요!"
 					break;
-				case "25":
-					resultMessege = "당신은 허경영 총재를 닮았네요!"
+				case "15":
+					resultMessege = "당신은 김무성 전 국회의원를 닮았네요!"
 					break;
-					case "15":
-						resultMessege = "당신은 김대중 전 대통령을 닮았네요!"
+					case "16":
+						resultMessege = "당신은 박원순 서울시장을 닮았네요!"
 						break;
 					case "17":
-						resultMessege = "당신은 노무현 전 대통령을 닮았네요!"
+						resultMessege = "당신은 심상정 국회의원을 닮았네요!"
 						break;
 							case "18":
-								resultMessege = "당신은 박원순 서울시장을 닮았네요!"
+								resultMessege = "당신은 이재명 경기도지사을 닮았네요!"
 								break;
 								case "19":
-									resultMessege = "당신은 박지원 국회의원을 닮았네요!"
+									resultMessege = "당신은 황교안 전 국무총리을 닮았네요!"
 									break;
-									case "20":
-										resultMessege = "당신은 심상정 국회의원을 닮았네요!"
-										break;
-										case "21":
-											resultMessege = "당신은 아베를 닮았네요!"
-											break;
-											case "22":
-												resultMessege = "당신은 원희룡 제주도지사를 닮았네요!"
-												break;
-												case "23":
-													resultMessege = "당신은 이재명 경기도지사를 닮았네요!"
-													break;
-													case "24":
-														resultMessege = "당신은 황교안 전 국무총리를 닮았네요!"
-														break;
-														case "16":
+					case "20":
+						resultMessege = "당신은 허경영 총재를 닮았네요!"
+						break;
+					
 															resultMessege = "당신은 김무성 전 국회의원를 닮았네요!"
 															break;
 				default:
@@ -253,7 +242,7 @@
 			}
 			$('.resulting').html(resultMessege);
 			console.log(Number(prediction[0].className));
-			$(".imgpc").append("<img src = 'img/" + Number(prediction[0].className) + ".jpg'>");
+			$(".imgpc").append("<img src = 'img/a" + Number(prediction[0].className) + ".jpg'>");
 			$('.percent').html("일치율은 " + (prediction[0].probability.toFixed(2)*100) + "% 입니다.");
 		}
 	</script>
