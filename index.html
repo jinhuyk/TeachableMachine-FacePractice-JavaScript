@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<title>나와 닮은 정치인은 누구일까?</title>
+	<link rel="stylesheet" href="style.css">
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e954794f5e77a43"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light nav-distance">
+		<a class="navbar-brand" href="#">세마고등학교 물리공학동아리 SEDA</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<!-- <li class="nav-item">
+					<a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dropdown
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+	</nav>
+	<section class="section">
+		<h3 class="title">나는 어떤 정치인과 닮았을까?</h3>
+		<h4 class="subtitle">SEDA 미리 맛보기! 머신러닝학습을 통한 나의 얼굴과 닮은 정치인 찾기</h4>
+		<h5 class="sub2title">*주의* 본 사이트는 장난의 목적으로만 사용해주세요</h5>
+	</section>
+	<section class="hper">
+
+		<a href="" class="linking">세마고등학교 물리공학동아리 SEDA 바로가기</a>
+
+	</section>
+	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<div class="file-upload">
+
+		<div class="image-upload-wrap">
+			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+			<div class="drag-text">자신의 얼굴 또는 친구의 얼굴사진을 끌어오거나 추가하기
+
+			</div>
+		</div>
+		<div class="file-upload-content">
+			<img class="file-upload-image" id="face-image" src="#" alt="your image" />
+			<p class="resulting"></p>
+			<p class="imgpc"></p>
+			<p class="percent"></p>
+			<p class="re">나온 결과를 밑에 댓글에 공유하세요!</p>
+			<div id="label-container"></div>
+
+			<!-- Go to www.addthis.com/dashboard to customize your tools -->
+			<div class="addthis_inline_share_toolbox"></div>
+
+			<div class="image-title-wrap">
+				<button type="button" onclick="removeUpload()" class="remove-image">다른얼굴로 다시하기
+				</button>
+			</div>
+		</div>
+	</div>
+	<div id="webcam-container"></div>
+	<div id="disqus_thread"></div>
+	<div id="disqus_thread"></div>
+	<script>
+		/**
+		 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document,
+				s = d.createElement('script');
+			s.src = 'https://peoplewho-seda.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+	</script>
+	<noscript>Please enable JavaScript to view the
+		<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+	</noscript>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+	<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('.image-upload-wrap').hide();
+					$('.file-upload-image').attr('src', e.target.result);
+					$('.file-upload-content').show();
+					$('.image-title').html(input.files[0].name);
+				};
+				reader.readAsDataURL(input.files[0]);
+				$('.resulting').html("분석중입니다....");
+				init().then(() => {
+					predict();
+				});
+				//predict();
+			} else {
+				removeUpload();
+			}
+		}
+
+		function removeUpload() {
+			$('.file-upload-input').replaceWith($('.file-upload-input').clone());
+			$('.file-upload-content').hide();
+			$('.image-upload-wrap').show();
+		}
+		$('.image-upload-wrap').bind('dragover', function() {
+			$('.image-upload-wrap').addClass('image-dropping');
+		});
+		$('.image-upload-wrap').bind('dragleave', function() {
+			$('.image-upload-wrap').removeClass('image-dropping');
+		});
+	</script>
+	<script type="text/javascript">
+		// More API functions here:
+		// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+		// the link to your model provided by Teachable Machine export panel
+		const URL = "https://teachablemachine.withgoogle.com/models/1HUtZcBz4/";
+		let model, webcam, labelContainer, maxPredictions;
+		// Load the image model and setup the webcam
+		async function init() {
+			const modelURL = URL + "model.json";
+			const metadataURL = URL + "metadata.json";
+			// load the model and metadata
+			// Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+			// or files from your local hard drive
+			// Note: the pose library adds "tmImage" object to your window (window.tmImage)
+			model = await tmImage.load(modelURL, metadataURL);
+			maxPredictions = model.getTotalClasses();
+			// append elements to the DOM
+			labelContainer = document.getElementById("label-container");
+			for (let i = 0; i < maxPredictions; i++) { // and class labels
+				labelContainer.appendChild(document.createElement("div"));
+			}
+		}
+		// run the webcam image through the image model
+		async function predict() {
+			// predict can take in an image, video or canvas html element
+			var image = document.getElementById("face-image")
+			const prediction = await model.predict(image, false);
+			prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+			console.log(prediction);
+			var resultMessege;
+			var secmessage;
+			switch (prediction[0].className) {
+				case "0":
+					resultMessege = "당신은 김구 선생님을 닮았네요!"
+					break;
+				case "1":
+					resultMessege = "당신은 김정일 전 국방위원장을 닮았네요!"
+					break;
+				case "2":
+					resultMessege = "당신은 나경원 전 국회의원을 닮았네요!"
+					break;
+				case "3":
+					resultMessege = "당신은 문재인 대통령을 닮았네요!"
+					break;
+				case "4":
+					resultMessege = "당신은 박근혜를 닮았네요!"
+					break;
+				case "5":
+					resultMessege = "당신은 시진핑 주석을 닮았네요!"
+					break;
+				case "6":
+					resultMessege = "당신은 안철수 대표을 닮았네요!"
+					break;
+				case "7":
+					resultMessege = "당신은 오바마 전 미국대통령을 닮았네요!"
+					break;
+				case "8":
+					resultMessege = "당신은 유시민 이사장을 닮았네요!"
+					break;
+				case "9":
+					resultMessege = "당신은 이명박 전 대통령을 닮았네요!"
+					break;
+				case "10":
+					resultMessege = "당신은 전두환 전 대통령을 닮았네요!"
+					break;
+				case "11":
+					resultMessege = "당신은 트럼프  미국 대통령을 닮았네요!"
+					break;
+				case "12":
+					resultMessege = "당신은 푸틴  러시아 대통령을 닮았네요!"
+					break;
+				case "13":
+					resultMessege = "당신은 힐러리 클린턴 총장을 닮았네요!"
+					break;
+				case "14":
+					resultMessege = "당신은 홍준표 전 대표를 닮았네요!"
+					break;
+				case "15":
+					resultMessege = "당신은 허경영 총재를 닮았네요!"
+					break;
+				default:
+					resultMessege = "당신은 비슷한 얼굴이 없네요!"
+			}
+			$('.resulting').html(resultMessege);
+			console.log(Number(prediction[0].className));
+			$(".imgpc").append("<img src = 'img/" + Number(prediction[0].className) + ".jpg'>");
+			$('.percent').html("일치율은 " + prediction[0].probability.toFixed(2) + " 입니다. (예시: 1.00 ==> 100% )");
+		}
+	</script>
+
+</body>
+<!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+<!-- Copyright (c) 2020 by Jabran Rafique (https://codepen.io/jabranr/pen/GLFjv)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+
+</html>
