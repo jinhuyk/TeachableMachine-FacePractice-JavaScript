@@ -1,2 +1,3 @@
 User-agent: *
 Allow:/
+Sitemap: https://seda-myfaceisyourface.netlify.com/sitemap.xml
